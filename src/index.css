@@ -1,0 +1,4 @@
+/* 最小限のリセット。order_memo_v6.css がメインのスタイルを担当 */
+* {
+  box-sizing: border-box;
+}
