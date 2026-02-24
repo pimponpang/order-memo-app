@@ -36,6 +36,27 @@ body{
   .viewport{ max-width:430px; box-shadow:0 0 0 1px var(--line) }
 }
 
+/* 店員に見せる＝提示モード（写真+ピンを全画面表示） */
+.viewport.display-mode .bar,
+.viewport.display-mode .bottom { display: none; }
+.viewport.display-mode .stage {
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 14px;
+}
+.display-mode-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: calc(14px + var(--sab));
+  text-align: center;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  z-index: 30;
+  -webkit-tap-highlight-color: transparent;
+}
+.display-mode-overlay:hover { color: var(--text); }
+
 .bar{
   position:absolute;left:0;right:0;top:0;z-index:20;
   padding: calc(10px + var(--sat)) calc(12px + var(--sar)) 10px calc(12px + var(--sal));

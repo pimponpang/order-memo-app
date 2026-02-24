@@ -257,7 +257,20 @@ export function initOrderMemo(container) {
   if (btnClear) btnClear.onclick = clearPins;
 
   const btnShow = $('#btnShow');
-  if (btnShow) btnShow.onclick = () => alert('提示モード（UIのみ）');
+  if (btnShow) {
+    btnShow.onclick = () => {
+      container.classList.add('display-mode');
+      const overlay = document.createElement('div');
+      overlay.className = 'display-mode-overlay';
+      overlay.setAttribute('aria-label', 'タップで戻る');
+      overlay.textContent = 'タップで戻る';
+      overlay.onclick = () => {
+        container.classList.remove('display-mode');
+        overlay.remove();
+      };
+      container.appendChild(overlay);
+    };
+  }
 
   const btnResetHeader = $('#btnResetHeader');
   if (btnResetHeader) btnResetHeader.onclick = reset;
